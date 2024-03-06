@@ -1,0 +1,63 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+   
+
+    
+
+
+
+
+
+<style>
+        table
+         {
+            
+        text-align: center;
+        border: 1px solid black;
+        
+        margin-left: 50px;
+      
+    }
+    
+    th,td{
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-right: 20px;
+       text-align: center;
+    }
+</style>
+
+
+
+
+<table>
+    <tr>
+    <th>Heading</th>
+    <th>Discription</th>
+    <th>Image</th>
+    
+    
+
+</tr>
+        {% for i in datas %}
+    <tr>
+        
+        <td>{{i.heading}}</td>
+        <td>{{i.discription}}</td>
+        <td><img src="{{i.image.url}}" alt="" width="200px" height="200px"></td>
+
+        
+        
+        <td><a href="{% url 'delete_event' i.id %}" > <button class="btn btn-danger" style="background-color: rgb(240, 45, 45);">Delete</button></a>
+        <a href="{% url 'edit_event' i.id %}">  <button class="btn btn-primary" style="background-color:rgb(78, 78, 250)">Edit</button></a></td>
+        
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

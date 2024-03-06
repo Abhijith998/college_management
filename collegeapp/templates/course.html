@@ -1,0 +1,60 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    
+</style>
+<br><br><br>
+    <section>
+      
+        <div class="page-header min-vh-30">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4 col-lg-5 col-md-9 d-flex flex-column ms-auto me-auto ">
+                <div class="card card-plain">
+                  <div class="card-header">
+                    <h4 class="font-weight-bolder">Courses</h4>
+                    <p class="mb-0">Add courses</p>
+                 
+                  <div class="card-body">
+                    <form role="form" action="" method="post">
+                        {% csrf_token %}
+                      <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">Course</label>
+                        <input type="text" class="form-control" name="course"required  oninput="validatealphabet(this)">
+                        
+                      </div>
+                      <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">Fee</label>
+                        <input type="text" class="form-control" name="fee"required  oninput="validatenumber(this)">
+                        
+                      </div>
+                      
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Add</button>
+                      </div>
+                    </form>
+                    
+                  </div>
+                </div>
+                <br><br><br><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+
+        <script>
+          function validatealphabet(input) {
+            // Remove non-numeric characters from the input value
+            input.value = input.value.replace(/[^a-zA-Z]/g, '');
+        }
+        function validatenumber(input) {
+            // Remove non-numeric characters from the input value
+            input.value = input.value.replace(/[^0-9]/g, '');
+        }
+        </script>
+{%endblock%}

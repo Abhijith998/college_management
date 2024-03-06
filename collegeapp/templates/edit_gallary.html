@@ -1,0 +1,53 @@
+
+
+{% block body %}
+<style>
+    body{
+        background-color: gray;
+       padding: 0;
+       margin: 0;
+
+    }
+    
+    .edit{
+      
+      margin-left: 400px;
+      margin-top: 50px;
+      background-color: white;
+      width: 200px;
+      height: 200px;
+      padding: 100px;
+    }
+    .middle{
+          width: 100%;
+        box-sizing: border-box;
+        
+        height: 30px;
+        border-color: 5px blue;
+    }
+</style>
+
+<div class="color">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       
+            <div class="edit">
+            <h3 >Edit the Photos</h3>
+                
+
+                  
+                   
+            <td><input type="file" class="middle" name="image" value="{{datas.images}}" required></td><br><br>
+            <img src="{{datas.images.url}}" width="200px" height="200px" alt="">
+</tr>
+<tr>
+                    <td><input  type="submit" class="middle"  value="Save Changes"></td>
+                </tr>
+            </div>
+            
+      
+        
+    </form>
+</div>
+
+{% endblock %}

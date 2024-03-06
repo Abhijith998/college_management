@@ -1,0 +1,107 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<style>
+    
+
+</style>
+<section>
+      
+    <div class="page-header min-vh-30">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ">
+            <div class="card card-plain">
+              <div class="card-header">
+                <h3 class="font-weight-bolder">Add Teachers</h3>
+<form action="" method="post" >
+    {% csrf_token %}
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6 mb-1">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">Firstname</label>
+                    <input type="text" class="form-control" name="firstname"required oninput="validatealphabet(this)">
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="lastname"required oninput="validatealphabet(this)">  
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">username</label>
+                    <input type="text" class="form-control" name="username"required oninput="validatealphabet(this)">  
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <select name="course" id="dept" class="form-control"  style="width: 25%; display: inline-flex; margin-top: 30px;">
+                        <option value="">courses</option>
+                        {% for i in teacher %}
+                        <option value="{{i.id}}">{{i.course}}</option required>
+                        {% endfor %}
+                    </select>
+                  
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">Phonenumber</label>
+                    <input type="text" class="form-control" name="number"required  oninput="validatePhoneNumber(this)">  
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" id="numberInput" name="password"required oninput="validatepassword(this)">  
+                </div>
+            </div>
+           
+            
+            
+   
+        <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Submit</button>
+      </div>
+        <p id="result" ></p>
+    </div>
+</form>
+            <p id="successMessage" style="display:none; color: green;">Successfully completed!</p>
+    </div>
+        </div>
+            </div>
+                </div>
+                    </div>
+                        </div>
+
+                        
+ 
+<script>
+      function validatePhoneNumber(input) {
+            // Remove non-numeric characters from the input value
+            input.value = input.value.replace(/[^0-9]/g, '');
+        }
+
+        function validatepassword(input) {
+            // Remove non-numeric characters from the input value
+            input.value = input.value.replace(/[^a-zA-Z0-9]/g, '');
+        }
+        function validatealphabet(input) {
+            // Remove non-numeric characters from the input value
+            input.value = input.value.replace(/[^a-zA-Z]/g, '');
+        }
+    
+</script> 
+
+
+
+
+
+
+
+{% endblock %}

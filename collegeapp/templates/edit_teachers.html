@@ -1,0 +1,69 @@
+
+
+{% block body %}
+<style>
+    body{
+        background-color: gray;
+       padding: 0;
+       margin: 0;
+
+    }
+    
+    .edit{
+      
+      margin-left: 400px;
+      margin-top: 50px;
+      background-color: white;
+      width: 200px;
+    padding: 90px;
+     
+    }
+    .middle{
+          width: 100%;
+        box-sizing: border-box;
+        
+        height: 30px;
+        border-color: 5px blue;
+    }
+    .save{
+          width: 100%;
+        box-sizing: border-box;
+        
+        height: 30px;
+       background-color: rgb(79, 236, 16);
+    }
+</style>
+
+<div class="color">
+    <form action="" method="post">
+        {% csrf_token %}
+       
+            <div class="edit">
+            <h3 >Edit the students</h3>
+                
+                    <label for="">Firstname</label>
+                    <td><input type="text" class="middle" name="firstname" value="{{teac.firstname}}"required></td><br><br>
+                    <label for="">lastname</label>
+                    <td><input type="text" class="middle" name="lastname" value="{{teac.lastname}}"required></td><br><br>
+                   <select name="course" id="">
+                    {% for i in e %}
+                    <option  value="{{i.id}}" {% if i.id == edits.course.id %} selected {% endif %} required>{{i.course}}</option>
+                    {% endfor %}
+                   </select>
+                    <label for="">phonenumber</label>
+                    <td><input type="text" class="middle" name="phonenumber" value="{{teac.phonenumber}}"required></td><br><br>
+                  
+                  
+                    
+</tr>
+<tr>
+                    <td><input  type="submit" class="save"  value="Save Changes"></td>
+                </tr>
+            </div>
+            
+      
+        
+    </form>
+</div>
+
+{% endblock %}

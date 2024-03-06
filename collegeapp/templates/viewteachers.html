@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+   
+
+    
+
+
+
+
+
+<style>
+        table
+         {
+            
+        text-align: center;
+        border: 1px solid black;
+        
+        margin-left: 50px;
+      
+    }
+    
+    th,td{
+        padding-top: 10px;
+        padding-bottom: 20px;
+        padding-right: 20px;
+       text-align: center;
+    }
+</style>
+
+
+
+
+<table>
+    <tr>
+    <th>firstname</th>
+    <th>lastname</th>
+    <th>course</th>
+    <th>Phonenumber</th>
+    <th>Actions</th>
+    
+
+</tr>
+    {% for i in te %}
+    <tr>
+        <td>{{i.firstname}}</td>
+        <td>{{i.lastname}}</td>
+        <td>{{i.course.course}}</td>
+        <td>{{i.phonenumber}}</td>
+        
+        
+        <td><a href="{% url 'delete_teacher' i.id %}" > <button class="btn btn-danger" style="background-color: rgb(240, 45, 45);">Delete</button></a>
+        <a href="{% url 'edit_teachers' i.id %}">  <button class="btn btn-primary" style="background-color:rgb(78, 78, 250)">Edit</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

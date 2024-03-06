@@ -1,0 +1,153 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<style>
+    
+.error{
+    color: red;
+}
+</style>
+<section>
+      
+    <div class="page-header min-vh-30">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 ">
+            <div class="card card-plain">
+              <div class="card-header">
+                <h3 class="font-weight-bolder">Registration Form</h3>
+<form action="" method="post" >
+    {% csrf_token %}
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6 mb-1">
+                <div id="click" ></div>
+                <div class="input-group input-group-outline">
+                    <label class="form-label">Firstname</label>
+                    <input type="text" class="form-control" name="firstname" required  oninput="validatealphabet(this)">
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="lastname"required oninput="validatealphabet(this)">  
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">username</label>
+                    <input type="text" class="form-control" name="username"required oninput="validatealphabet(this)">  
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <select name="course" id="dept" class="form-control" style="width: 25%; display: inline-flex; margin-top: 30px;" required>
+                        <option value="">courses</option>
+                        {% for i in c %}
+                        <option value="{{i.id}}" data-fee="{{i.fees}}">{{i.course}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <input type="text" class="form-control"  id="fee" name="fee" required readonly placeholder="Fee">
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">Year</label>
+                    <input type="text" class="form-control" name="year"required  oninput="validatenumber(this)">  
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control"  name="email" id="emailForm"  >  
+                    <span id="click" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label class="form-label">Password(dateofbirth)</label>
+                    <input type="password" class="form-control" name="password" required oninput="validatepassword(this)">  
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <div class="form-check">
+                        <label class="form-label">Gender</label><br><br>
+                        <input type="radio" class="form-check-input" name="gender" value="Male" id="maleRadio" required>
+                        <label class="form-check-label" for="maleRadio">Male</label>
+                    
+                    
+                        <input type="radio" class="form-check-input" name="gender" value="Female" id="femaleRadio" required>
+                        <label class="form-check-label" for="femaleRadio">Female</label>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+            
+        </div>
+    </div>
+   
+        <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" onclick="emailsubmit()" >Submit</button>
+      </div>
+        
+    </div>
+</form>
+    </div>
+        </div>
+            </div>
+                </div>
+                    </div>
+                        </div>
+                        <script>
+                            document.getElementById('dept').addEventListener('change', function() {
+                                var selectedCourse = this.value;
+                                var fee = this.options[this.selectedIndex].getAttribute('data-fee');
+                                document.getElementById('fee').value = fee;
+                            });
+                        </script>
+                        <script>
+                            
+                            function onSubmit() {
+                            // Add your form submission logic here
+                            // For now, just show the success message
+                            document.getElementById("click").style.display = "block";
+
+                            }
+                            function validatepassword(input) {
+                        // Remove non-numeric characters from the input value
+                        input.value = input.value.replace(/[^a-zA-Z0-9]/g, '');
+        }
+                        function validatenumber(input) {
+                        // Remove non-numeric characters from the input value
+                        input.value = input.value.replace(/[^0-9]/g, '');
+        }
+                        function validatealphabet(input) {
+                        // Remove non-numeric characters from the input value
+                        input.value = input.value.replace(/[^a-zA-Z]/g, '');
+        }
+                        </script>
+
+
+
+            
+  <script>
+    function emailsubmit(){
+        var email=document.getElementById('emailform').value;
+        if(! (email.includes("@") && email.includes("."))){
+                document.getElementById("click").innerHTML="invalid email"
+                return true
+            } 
+            else{
+                return false
+            }
+    }
+  </script>
+{% endblock %}

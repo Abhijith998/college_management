@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<style>
+    body{
+            
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        
+    }
+    .events{
+        padding: 30px;
+        background-color: white;
+        width: 75%;
+        margin-left: 100px;
+       
+       
+    }
+    .events1{
+        padding: 30px;
+        background-color: white;
+        width: 75%;
+        margin-left: 100px;
+        margin-top: 50px; 
+    }
+    .events2{
+        padding: 30px;
+        background-color: white;
+        width: 75%;
+        margin-left: 100px;
+        margin-top: 50px;
+    }
+    .events3{
+        padding: 30px;
+        background-color: white;
+        width: 75%;
+        margin-left: 100px;
+        margin-top: 50px;
+    }
+    h2{
+        text-align: center;
+    }
+    h4{
+        text-align: center;
+    }
+    .img{
+        width: 700px;
+        padding-left: 30px;
+        display: flex;
+        justify-content: center; 
+    }
+    
+</style>
+<h2>News and Events</h2>
+<div class="events">
+    <form action="" method="post">
+        {% csrf_token %}
+    
+    <h4 >Host local tours to familiarize students with their surroundings. </h4> 
+    <p>Walking tours, bus tours, and even bike tours are fun opportunities for students ” particularly freshmen and other campus newcomers ” to make friends and get to know the area around them. Highlight popular attractions, restaurants, recreation areas, and local monuments. Invite parents to join during orientation or visitor weekends and include senior students in the tour staff. This will help current students earn some extra income, and they will be able to share personal anecdotes about the area in addition to credible tips from the eyes of a student.</p>
+    <img src="https://www.socialtables.com/wp-content/uploads/2019/10/DJset-1024x768.png" class="img"   alt="">
+</div> 
+    <div class="events1">
+        <h4>Academic year and inagrution and club inagrution</h4>
+        <p>There are so many avenues to plan an informative event that is also fun when it comes to college event planning. College-age people are also really well-placed to make the most of these kinds of events because they will be choosing to attend based solely on their own decision. This is one of the best parts of making up plans for this kind of event.</p>
+        <img src="https://public-assets-host.s3.amazonaws.com/images/post/89225564d86854744c386fddb3dbd1b1" class="img" alt="">
+    </div>
+    <div class="events2">
+        <h4>Discussion Groups</h4>
+        <p>Sometimes being at school all day online can be really isolating. Some students might not have anyone else around to even talk to. You will be doing these people a big favor by hosting discussion groups that let people get together and chat about common interests, themes, or even world events. This is a great way to encourage bonding and to help make sure that your students are connecting with new friends and study buddies as well.</p>
+        <img src="https://public-assets-host.s3.amazonaws.com/images/post/e5b0dcc28ae91df81aa2d4b177fd0eae" class="img" alt="">
+    </div>
+    <div class="events3">
+        <h4>Webinars</h4>
+        <p>There are so many ways that you can host webinars to help your college students to learn more than just class-based skills during college. From investing skills to job hunting skills and more, you can use your webinar events to help your students be ready for the real world when they leave school.</p>
+        <img src="https://public-assets-host.s3.amazonaws.com/images/post/23fc6344576a1694ee28289df1c68133" class="img" alt="">
+    </div>
+</form>
+
+
+{% endblock %}
