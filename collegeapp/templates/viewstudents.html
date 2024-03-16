@@ -40,7 +40,6 @@
     <th>lastname</th>
     <th>year</th>
     <th>email</th>
-    <th>password</th>
     <th>Department</th>
     <th>Actions</th>
     
@@ -48,12 +47,11 @@
 </tr>
     {% for i in st %}
     <tr>
-        <td>{{i.firstname}}</td>
-        <td>{{i.lastname}}</td>
+        <td>{{i.user.first_name}}</td>
+        <td>{{i.user.last_name}}</td>
         <td>{{i.year}}</td>
-        <td>{{i.email}}</td>
-        <td>{{i.password}}</td>
-        <td>{{i.dept.course}}</td>
+        <td>{{i.user.email}}</td>
+        <td>{{i.course.course}}</td>
         
         <td><a href="{% url 'delete_student' i.id %}" > <button class="btn btn-danger" style="background-color: rgb(240, 45, 45);">Delete</button></a></td>
         <td><a href="{% url 'edit_student' i.id %}">  <button class="btn btn-primary" style="background-color:rgb(78, 78, 250)">Edit</button></a></td>
