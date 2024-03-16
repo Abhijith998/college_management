@@ -42,14 +42,14 @@
             <h3 >Edit the students</h3>
                 
                     <label for="">Firstname</label>
-                    <td><input type="text" class="middle" name="firstname" value="{{teac.firstname}}"required></td><br><br>
+                    <td><input type="text" class="middle" name="firstname" value="{{teac.user.first_name}}"required></td><br><br>
                     <label for="">lastname</label>
-                    <td><input type="text" class="middle" name="lastname" value="{{teac.lastname}}"required></td><br><br>
+                    <td><input type="text" class="middle" name="lastname" value="{{teac.user.last_name}}"required></td><br><br>
                     <label for="">Education</label>
                     <td><input type="text" class="middle" name="education" value="{{teac.education}}"required></td><br><br>
                    <select name="course" id="">
                     {% for i in e %}
-                    <option  value="{{i.id}}" {% if i.id == edits.course.id %} selected {% endif %} required>{{i.course}}</option>
+                    <option  value="{{i.id}}" {% if i.id == teac.courses.id %} selected {% endif %} required>{{i.course}}</option>
                     {% endfor %}
                    </select>
                     <label for="">phonenumber</label>
