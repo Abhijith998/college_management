@@ -89,7 +89,7 @@ DATABASES = {
        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'collegemanagement',
         'USER': 'admin',
-        'PASSWORD':'abHI1234',
+        'PASSWORD':'ABHI1234',
         'HOST':'collegemanagement.cf2rj0lbckjo.us-east-1.rds.amazonaws.com',
         'PORT':'3306'
     }
