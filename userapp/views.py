@@ -19,9 +19,11 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.utils.http import urlsafe_base64_encode
-
+@login_required
 def home(request):
-    return render(request,'home.html')
+    courses=addcourse.objects.all()
+    images=image.objects.all()
+    return render(request,'home.html',{'courses':courses,'images':images})
 
 
 def student(request):

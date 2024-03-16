@@ -29,4 +29,5 @@ urlpatterns = [
     path('edit_gallary/<int:pk>',views.edit_gallary,name='edit_gallary'),
     path('login_admin',views.login_admin,name='login_admin'),
     path('logout_user',views.logout_user,name='logout_user'),
+    path('logout_page',views.logout_page,name='logout_page'),
 ]

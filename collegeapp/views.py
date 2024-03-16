@@ -237,4 +237,8 @@ def login_admin(request):
 def logout_user(request):
     logout(request)
     request.session.flush()
-    return redirect('login_admin')
+    return redirect('home')
+
+
+def logout_page(request):
+    return render(request,'logout_page.html')
