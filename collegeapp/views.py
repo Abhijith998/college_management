@@ -56,7 +56,7 @@ def addstudent(request,):
     return render(request,'addstudent.html',{'c':all_course})
 
 def viewstudents(request):
-    datas=students.objects.all()
+    datas=register.objects.all()
     return render(request,'viewstudents.html',{'st':datas})
 
 
@@ -77,7 +77,6 @@ def edit_student(request,pk):
         edits.dept=addcourse.objects.get(id=course_id)
         edits.year=request.POST['year']
         edits.email=request.POST['email']
-        edits.password=request.POST['password']
         edits.save()
         return redirect('viewstudents')
 
@@ -129,7 +128,7 @@ def edit_teachers(request,pk):
        
 
 def viewteachers(request):
-    datas=teachers.objects.all()
+    datas=teacher_login.objects.all()
     return render(request,'viewteachers.html',{'te':datas})
 
 def events(request):
