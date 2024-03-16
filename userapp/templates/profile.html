@@ -1,0 +1,30 @@
+{% extends 'studentbase.html' %}
+{% block body %}
+<style>
+    .card{
+        width: 30%;
+        margin: 0 auto;
+
+    }
+    .card-text{
+        color: black;
+    }
+    .card-title{
+        color: black;
+    }
+</style>
+{% if user %}
+<div class="card">
+    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top" alt="Fissure in Sandstone"/>
+    <div class="card-body">
+      <h5 class="card-title">{{user_username}}</h5>
+      <p class="card-text">{{user_email}}</p>
+      <p class="card-text">{{user.year}}</p>
+      <p class="card-text">{{user.dept.course}}</p>
+      <a href="#!" class="btn btn-primary" data-mdb-ripple-init>Button</a>
+    </div>
+  </div>
+  {% else %}
+  <p>Error: {{ error_message }}</p>
+{% endif %}
+{% endblock %}

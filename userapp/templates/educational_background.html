@@ -1,0 +1,19 @@
+
+<style>
+    .margin{
+       margin: 30px;
+    }
+</style>
+{% extends 'indexpage.html' %}
+
+{% block body %}
+
+{% for i in education_items %}
+    <li class="margin">{{ i }}</li>
+{% endfor %}
+
+
+
+
+
+{% endblock %}

@@ -41,6 +41,20 @@
             </div>
             <div class="col-md-6 mb-3">
                 <div class="input-group input-group-outline">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" required >  
+                </div>
+            </div> 
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
+                    <label for="email" class="form-label">Educational background</label>
+                    <li><ol><input type="text" class="form-control" name="education" required ></ol></li>
+                    <li><ol><input type="text" class="form-control" name="education" required ></ol></li>
+                    <li><ol><input type="text" class="form-control" name="education" required ></ol></li>
+                </div>
+            </div> 
+            <div class="col-md-6 mb-3">
+                <div class="input-group input-group-outline">
                     <select name="course" id="dept" class="form-control"  style="width: 25%; display: inline-flex; margin-top: 30px;">
                         <option value="">courses</option>
                         {% for i in teacher %}

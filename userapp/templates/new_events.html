@@ -1,0 +1,46 @@
+{% extends 'indexpage.html' %}
+{% block body %}
+<style>
+    /* Style for the container */
+.web {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style for the heading */
+.web h1 {
+    color: blue;
+    text-align: center;
+}
+
+/* Style for individual news/event items */
+.web h3 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.web p {
+    margin-bottom: 10px;
+}
+
+.web img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+</style>
+
+<div class="web">
+    <h1 style="color: blue;">News and Events</h1>
+  {% for data in event %}
+    <h3>{{ data.heading }}</h3>
+    <p>{{ data.discription }}</p>
+    <img src="{{ data.image.url }}" alt="">
+  {% endfor %}
+  </div>
+
+
+{% endblock %}

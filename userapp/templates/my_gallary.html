@@ -1,0 +1,28 @@
+{% extends 'studentbase.html' %}
+{% block body %}
+<style>
+    .image-container {
+        display: block;
+        justify-content: center; 
+        align-items: center;      
+    }
+
+    .image-container img {
+        width: 300px;             
+        height: 300px;            
+        margin: 10px;
+        transition: transform 0.1s ease-in-out;
+    }
+    .image-container img:hover {
+        transform: scale(1.1);  /* Scale the image slightly on hover */
+    }
+</style>
+
+<div class="image-container">
+    {% for i in photo %}
+        <img src="{{ i.images.url }}" alt="">
+    {% endfor %}
+</div>
+
+
+{% endblock %}

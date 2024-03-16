@@ -1,0 +1,41 @@
+{% extends 'studentbase.html' %}
+{% block body %}
+<style>
+ 
+  .web{
+    padding: 200px;
+    text-align: center;
+    padding-top: 10px;
+    
+    
+      }
+    
+    
+  .web img{
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+    
+  }
+  h3{
+    text-align: center;
+    color: black ;
+  }
+  p{
+    text-align: center;
+    
+  }
+</style>
+
+<div class="web">
+  <h1 style="color: blue;">News and Events</h1>
+{% for datas in data %}
+  <h3>{{ datas.heading }}</h3>
+  <p>{{ datas.discription }}</p>
+  <img src="{{ datas.image.url }}" alt="">
+{% endfor %}
+</div>
+
+
+
+{% endblock %}

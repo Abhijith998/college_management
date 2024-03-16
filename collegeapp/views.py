@@ -14,8 +14,9 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from django.contrib.auth.models import User
-@login_required
+
 def index(request):
+    # return HttpResponse('fgh')
     return render(request,'index.html')
 
 def course(request):
@@ -88,6 +89,8 @@ def Teachers(request):
         firstname=request.POST['firstname']
         lastname=request.POST['lastname']
         username=request.POST['username']
+        email=request.POST['email']
+        education=request.POST['education']
         course=request.POST['course']
         number=request.POST['number']
         password=request.POST['password']
@@ -96,10 +99,10 @@ def Teachers(request):
         if User.objects.filter(username=username).exists():
             messages.error(request,'Already Exist')
         else:
-            data=User.objects.create(first_name=firstname,last_name=lastname,username=username,password=password)
-            data.save()
-        teacher=teacher_login(phonenumber=number,courses=courses,user=data)
-        teacher.save()
+            data_user=User.objects.create(first_name=firstname,last_name=lastname,username=username,password=password,email=email)
+            data_user.save()
+            teacher=teacher_login(phonenumber=number,education=education,courses=courses,user=data_user)
+            teacher.save()
 
     datas=addcourse.objects.all()
     return render(request,'Teachers.html',{'teacher':datas})
@@ -121,7 +124,7 @@ def edit_teachers(request,pk):
         teacher.phonenumber=request.POST['phonenumber']
         teacher.save()
         return redirect('viewteachers')
-    return render(request,'edit_teachers.html',{'teac':teacher,'e':course})  
+    return render(request,'edit_teachers.html',{'teac':teacher,'e':course,})  
         
        
 

@@ -19,7 +19,7 @@ class teachers(models.Model):
     course=models.ForeignKey(addcourse,on_delete=models.CASCADE)
     phonenumber=models.CharField(max_length=100)
     password=models.CharField(max_length=100)
-
+    
     
 class image(models.Model):
     heading=models.CharField(max_length=100)
@@ -41,4 +41,6 @@ class teacher_login(models.Model):
     phonenumber=models.CharField(max_length=100)
     courses=models.ForeignKey(addcourse,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
+    education=models.CharField(max_length=100,blank=True,null=True)
+    
    

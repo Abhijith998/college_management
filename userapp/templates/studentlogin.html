@@ -1,5 +1,17 @@
-{% extends 'userbase.html' %}
-{% block body %}
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+  rel="stylesheet"
+/>
 
     <section class="vh-100 gradient-custom">
         <div class="container py-5 h-100">
@@ -15,12 +27,12 @@
                     <form action="{% url 'studentlogin' %}" method="post">
                         {% csrf_token %}
                     <div class="form-outline form-white mb-4">
-                      <input type="text" id="typeEmailX" class="form-control form-control-lg"  name="username"/>
+                      <input type="text" id="typeEmailX" class="form-control form-control-lg"  name="username" required  />
                       <label class="form-label" >Username</label>
                     </div>
       
                     <div class="form-outline form-white mb-4">
-                      <input type="password" id="typePasswordX" class="form-control form-control-lg" name="login_password" />
+                      <input type="password" id="typePasswordX" class="form-control form-control-lg" name="login_password" required oninput="validatepassword(this)"/>
                       <label class="form-label" >Password</label>
                     </div>
       
@@ -49,4 +61,9 @@
         </div>
       </section>
      
-{% endblock %}
+     <script>
+      function validatepassword(input) {
+                        // Remove non-numeric characters from the input value
+              input.value = input.value.replace(/[^a-zA-Z0-9]/g, '');
+        }
+     </script>
