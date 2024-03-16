@@ -66,21 +66,36 @@ def delete_student(request,pk):
     return redirect('viewstudents')
     
 
-def edit_student(request,pk):
-    edits=students.objects.get(id=pk)
-    course=addcourse.objects.all()
-
-    if request.method=='POST':
-        edits.firstname=request.POST['firstname']
-        edits.lastname=request.POST['lastname']
-        course_id = request.POST['course']
-        edits.dept=addcourse.objects.get(id=course_id)
-        edits.year=request.POST['year']
-        edits.email=request.POST['email']
-        edits.save()
+def edit_student(request, pk):
+    # Retrieve the register object for the student
+    student_register = register.objects.get(id=pk)
+    
+    # Retrieve the associated user object for the student
+    student_user = student_register.user
+    
+    # Retrieve all courses for dropdown
+    courses = addcourse.objects.all()
+    
+    if request.method == 'POST':
+        # Update user information
+        student_user.first_name = request.POST.get('firstname')
+        student_user.last_name = request.POST.get('lastname')
+        student_user.email = request.POST.get('email')
+        
+        # Update register information
+        course_id = request.POST.get('course')
+        student_register.course = addcourse.objects.get(id=course_id)
+        student_register.year = request.POST.get('year')
+        
+        # Save changes to both user and register objects
+        student_user.save()
+        student_register.save()
+        
+        # Redirect to view students page or another appropriate view
         return redirect('viewstudents')
-
-    return render(request,'edit_student.html',{'edits':edits,'c':course})
+    
+    # Pass necessary data to the template
+    return render(request, 'edit_student.html', {'user': student_user, 'edits': student_register, 'courses': courses})
 
 def Teachers(request):
    
@@ -113,16 +128,19 @@ def delete_teacher(request,pk):
 
 
 def edit_teachers(request,pk):
-    teacher=teachers.objects.get(id=pk)
+    teacher=teacher_login.objects.get(id=pk)
+    teacher_user = teacher.user
     course=addcourse.objects.all()
     if request.method=="POST":
-        teacher.firstname=request.POST['firstname']
-        teacher.lastname=request.POST['lastname']
+        teacher_user.first_name=request.POST['firstname']
+        teacher_user.last_name=request.POST['lastname']
         course=request.POST['course']
-        teacher.course=addcourse.objects.get(id=course)
+        teacher.courses=addcourse.objects.get(id=course)
         teacher.phonenumber=request.POST['phonenumber']
         teacher.save()
+        teacher_user.save()
         return redirect('viewteachers')
+    
     return render(request,'edit_teachers.html',{'teac':teacher,'e':course,})  
         
        
@@ -153,7 +171,6 @@ def edit(request,pk):
 
 
     return render(request,'edit.html',{'edit':datas})
-
 def viewevent(request):
     datas=image.objects.all()
     return render(request,'viewevent.html',{'datas':datas})
