@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_=9=wg7$xjz)ru9q6h7)h$wwy#4&w*8hy9ri-s++ylg9w5i%^#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['52.90.59.72']
 
 
 # Application definition
@@ -88,9 +88,9 @@ DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'collegemanagement',
-        'USER': 'root',
-        'PASSWORD':'',
-        'HOST':'localhost',
+        'USER': 'admin',
+        'PASSWORD':'abHI1234',
+        'HOST':'collegemanagement.cf2rj0lbckjo.us-east-1.rds.amazonaws.com',
         'PORT':'3306'
     }
 }
