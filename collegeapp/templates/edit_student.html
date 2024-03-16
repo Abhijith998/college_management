@@ -42,20 +42,18 @@
             <h3 >Edit the students</h3>
                 
                     <label for="">Firstname</label>
-                    <td><input type="text" class="middle" name="firstname" value="{{edits.firstname}}"required></td><br><br>
+                    <td><input type="text" class="middle" name="firstname" value="{{edits.user.first_name}}"required></td><br><br>
                     <label for="">lastname</label>
-                    <td><input type="text" class="middle" name="lastname" value="{{edits.lastname}}"required></td><br><br>
+                    <td><input type="text" class="middle" name="lastname" value="{{edits.user.last_name}}"required></td><br><br>
                    <select name="course" id="">
-                    {% for i in c %}
-                    <option  value="{{i.id}}" {% if i.id == edits.dept.id %} selected {% endif %}>{{i.course}}</option>
+                    {% for i in courses %}
+                    <option  value="{{i.id}}" {% if i.id == edits.course.id %} selected {% endif %}>{{i.course}}</option>
                     {% endfor %}
-                   </select>
+                   </select><br><br>
                     <label for="">Year</label>
                     <td><input type="text" class="middle" name="year" value="{{edits.year}}"required></td><br><br>
                     <label for="">Email</label>
-                    <td><input type="text" class="middle" name="email" value="{{edits.email}}"required></td><br><br>
-                    <label for="">Password</label>
-                    <td><input type="text" class="middle" name="password" value="{{edits.password}}"required></td><br><br>
+                    <td><input type="text" class="middle" name="email" value="{{edits.user.email}}"required></td><br><br>
                     
 </tr>
 <tr>
