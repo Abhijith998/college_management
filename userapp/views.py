@@ -50,7 +50,7 @@ def logout_app(request):
     logout(request)
     request.session.flush()
 
-    response = redirect('studentlogin')
+    response = redirect('/')
     
     # Set cache-control headers to prevent caching
     response['Cache-Control'] = 'no-store, must-revalidate'
