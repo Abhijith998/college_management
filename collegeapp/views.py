@@ -198,6 +198,7 @@ def edit_event(request,pk):
         edit.heading=request.POST['heading']
         edit.discription=request.POST['discription']
         images=request.FILES.get('image')
+        edit.save()
         if images:
             edit.image=images
             edit.save()
