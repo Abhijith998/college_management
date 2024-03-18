@@ -86,7 +86,6 @@ def edit_student(request, pk):
         course_id = request.POST.get('course')
         student_register.course = addcourse.objects.get(id=course_id)
         student_register.year = request.POST.get('year')
-        st
         
         # Save changes to both user and register objects
         student_user.save()
