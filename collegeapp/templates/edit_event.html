@@ -14,16 +14,21 @@
       margin-left: 400px;
       margin-top: 50px;
       background-color: white;
-      width: 200px;
-      height: 200px;
+     width: 200px;
+      height: 350px; 
       padding: 100px;
     }
     .middle{
           width: 100%;
         box-sizing: border-box;
-        
+       
         height: 30px;
         border-color: 5px blue;
+    }
+    img{
+        width: 200px;
+        height: 200px;
+       
     }
 </style>
 
@@ -38,7 +43,7 @@
                     <td><input type="text" class="middle" name="heading" value="{{edit.heading}}" required></td><br><br>
                     <td><input type="text" class="middle" name="discription" value="{{edit.discription}}" required></td><br><br>
                     <td><input type="file" class="middle" name="image" value="{{edit.image}}"></td><br><br>
-                    <img src="{{edit.image.url}}" alt="">
+                    <td><img src="{{edit.image.url}}" alt=""></td>
 </tr>
 <tr>
                     <td><input  type="submit" class="middle"  value="Save Changes"></td>
