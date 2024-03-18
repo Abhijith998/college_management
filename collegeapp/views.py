@@ -138,7 +138,7 @@ def edit_teachers(request,pk):
         course=request.POST['course']
         teacher.courses=addcourse.objects.get(id=course)
         teacher.phonenumber=request.POST['phonenumber']
-         teacher.education=request.POST['education']
+        teacher.education=request.POST['education']
         teacher.save()
         teacher_user.save()
         return redirect('viewteachers')
