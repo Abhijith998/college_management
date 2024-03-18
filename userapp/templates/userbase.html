@@ -47,18 +47,13 @@
     </div>
 
 
-    <div class="py-2 bg-light">
+     <div class="py-2 bg-light">
       <div class="container">
-        <div class="row align-items-center">
-          <!-- <div class="col-lg-9 d-none d-lg-block">
-            <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Have a questions?</a> 
-            <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> 10 20 123 456</a> 
-            <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a> 
-          </div> -->
-          <div class="" style="margin-left: 700px;" >
-            <a href="{% url 'login_admin' %}" class="small mr-3" style="margin-right: 50px;"><span class="icon-unlock-alt" ></span>Admin Log In</a>
-            <a href="{% url 'studentlogin' %}" class="small btn btn-primary px-1 py-2 rounded-0"  ><span class="icon-users"></span> Studentlogin</a>
-            <a href="{% url 'teacher_log' %}" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Teachers Login</a>
+        <div class="row justify-content-end">
+          <div class="col-md-6 text-right">
+            <a href="{% url 'login_admin' %}" class="small mr-3"><span class="icon-unlock-alt"></span> Admin Log In</a>
+            <a href="{% url 'studentlogin' %}" class="small btn btn-primary px-2 py-1 rounded-0"><span class="icon-users"></span> Student Login</a>
+            <a href="{% url 'teacher_log' %}" class="small btn btn-primary px-2 py-1 rounded-0"><span class="icon-users"></span> Teachers Login</a>
           </div>
         </div>
       </div>
