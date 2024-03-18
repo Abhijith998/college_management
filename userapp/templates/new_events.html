@@ -30,15 +30,18 @@
     height: auto;
     margin-bottom: 20px;
 }
-
-</style>
+   .img{
+    width: 600px;
+    height: 600px;
+    display: flex;
+}
 
 <div class="web">
     <h1 style="color: blue;">News and Events</h1>
   {% for data in event %}
     <h3>{{ data.heading }}</h3>
     <p>{{ data.discription }}</p>
-    <img src="{{ data.image.url }}" alt="">
+    <img class="img" src="{{ data.image.url }}" alt="">
   {% endfor %}
   </div>
 
